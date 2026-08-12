@@ -1,0 +1,45 @@
+<%-include('.. /cabecalho.ejs')%>
+    <h1>Materials</h1>
+    <div>
+        <form action="
+        " method="post">
+            <input type="text" name="filtro" id="" placeholder="digite o nome">
+            <button type="submit">Pesquisar</button>
+        </form>
+    </div>
+    <a href="/material/add">+ material</a>
+    <table>
+        <tr>
+            <td>Título</td>
+            <td>Descrição</td>
+            <td>Categoria</td>
+            <td>Arquivo</td>
+            <td>Capa</td>
+            <td>Ações</td>
+        </tr>
+
+        <% for (const material of Materiais) { %>
+            <tr>
+                <td>
+                    <%= material.titulo %>
+                </td>
+                <td>
+                    <%= material.descricao %>
+                </td>
+                <td>
+                    <%= material.categoria %>
+                </td>
+                <td>
+                    <%= material.arquivo %>
+                </td>
+                <td>
+                    <%= material.capa %>
+                </td>
+                <td>
+                    <a href="/material/edt/<%= material._id %>">Editar</a>
+                    <a href="/material/del/<%= material._id %>">Excluir</a>
+                </td>
+            </tr>
+            <% } %>
+    </table>
+    <%-include('.. /rodape.ejs')%>
